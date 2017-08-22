@@ -18,7 +18,7 @@ def init_db():
 
 @manager.command
 def run_server():
-    app.run(host='0.0.0.0',port=8090,debug=True)
+    app.run(host='0.0.0.0',port=9090,debug=True)
 
 if __name__ == '__main__':
     log = logger(__name__)

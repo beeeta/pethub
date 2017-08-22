@@ -3,7 +3,7 @@ from .bp.auth import bp as auth
 from .bp.auth import login_manager
 from .models import db
 
-from flask_wtf.csrf import CSRFProtect
+from flask_wtf.csrf import CsrfProtect
 from flask import Flask
 
 def create_app():
@@ -13,7 +13,7 @@ def create_app():
 
     login_manager.init_app(app)
     db.init_app(app)
-    csrf = CSRFProtect()
+    csrf = CsrfProtect()
     csrf.init_app(app)
     app.register_blueprint(auth,url_prefix='/auth')
     app.register_blueprint(sy,url_prefix='/adopt')

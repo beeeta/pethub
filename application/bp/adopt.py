@@ -7,7 +7,7 @@ from ..models.user import User
 
 from ..forms.add_pet_form import AddPetForm
 
-bp = Blueprint('shouyang',__name__)
+bp = Blueprint('adopt',__name__)
 
 # get shouyang list info
 @bp.route("/index",methods=['GET'])
@@ -23,20 +23,20 @@ def detail(id):
 
 @bp.route("/add",methods=['POST'])
 @login_required
-def detail():
+def add():
     form = AddPetForm()
     if form.validate_on_submit():
         pet = Pet(form.kind.data,form.city.data,form.link.data)
         db.session.add(pet)
         db.session.commit()
-    return redirect(url_for('shouyang.index'))
+    return redirect(url_for('adopt.index'))
 
 @bp.route("/delete",methods=['POST'])
 @login_required
-def detail():
+def delete():
     id = request.args.id
     Pet.query.filter_by(id=id).delete()
     db.session.commit()
-    return redirect(url_for('shouyang.index'))
+    return redirect(url_for('adopt.index'))
 
 
