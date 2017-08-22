@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<form method="post" action="{{ url_for('auth.register') }}">
+    <input name="csrf_token" type="hidden" value="{{ csrf_token() }}"/>
+    <input name="username" type="text"/>
+    <input name="email" type="text"/>
+    <input name="password" type="password"/>
+    <input name="rept_password" type="password"/>
+    <input name="Submit" type="submit">
+</form>
+</body>
+</html>
