@@ -1,16 +1,20 @@
 
-import shouyang from './page/shouyang/shouyang.vue'
-import songyang from './page/songyang/songyang.vue'
-import syfb from './page/songyang/songyang-fb.vue'
+import adoption from './page/adoption/adoption.vue'
+import send from './page/send/send.vue'
+import rescue from './page/rescue/rescue.vue'
+import send_add from './page/send/send-add.vue'
 
 export default [
   {
-    path:'/',component:shouyang,
+    path:'/',component:adoption,
   },
   {
-    path:'/songyang',component:songyang,children:
+    path:'/send',component:send,children:
     [{
-      path:'/songyang/fb',component:syfb,
+      path:'/send/add',component:send_add,
     }]
   },
+  {
+    path:'/rescue',component:rescue,
+  }
 ]

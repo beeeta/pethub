@@ -2,6 +2,7 @@
   <div id="app">
     <!-- 头部导航 -->
     <header class="header">
+      <link rel="shortcut icon" href="/assets/favicon.ico">
       <el-row>
         <el-col :span="24">
           <el-menu default-active="5" class="el-menu-demo" mode="horizontal" @select="">
