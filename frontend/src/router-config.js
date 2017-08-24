@@ -3,6 +3,7 @@ import adoption from './page/adoption/adoption.vue'
 import send from './page/send/send.vue'
 import rescue from './page/rescue/rescue.vue'
 import send_add from './page/send/send-add.vue'
+import rescue_addReply from './page/rescue/rescue-addReply.vue'
 
 export default [
   {
@@ -15,6 +16,9 @@ export default [
     }]
   },
   {
-    path:'/rescue',component:rescue,
+    path:'/rescue',component:rescue,children:
+    [{
+      path:'/rescue/addReply',component:rescue_addReply,
+    }]
   }
 ]
