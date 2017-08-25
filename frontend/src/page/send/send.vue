@@ -23,21 +23,6 @@
         prop="link"
         label="联系方式">
       </el-table-column>
-
-      <el-table-column
-        fixed="right"
-        label="操作"
-        width="120">
-        <template scope="scope">
-          <el-button
-            @click.native.prevent="deleteRow(scope.$index, tableData4)"
-            type="text"
-            size="small">
-            详情
-          </el-button>
-        </template>
-      </el-table-column>
-
     </el-table>
 
     <el-dialog title="送养信息" :visible.sync="dialogFormVisible">

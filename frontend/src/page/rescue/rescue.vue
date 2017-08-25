@@ -18,7 +18,7 @@
       </el-col>
     </el-row>
 
-    <el-dialog title="添加评论" :visible.sync="addRescueReplyVisible">
+    <el-dialog title="添加回复" :visible.sync="addRescueReplyVisible">
       <el-form :model="comment">
         <el-form-item label="" :label-width="formLabelWidth">
           <el-input v-model="comment.context" auto-complete="off"></el-input>
@@ -27,7 +27,7 @@
 
       <div slot="footer" class="dialog-footer">
         <el-button @click="dialogFormVisible = false">取 消</el-button>
-        <el-button type="primary" @click="addRescueReplyVisible = false">确 定</el-button>
+        <el-button type="primary" @click="submitForm">确 定</el-button>
       </div>
     </el-dialog>
 
@@ -53,7 +53,7 @@ export default {
         showReplys(event){
           var id = $(event.target).parent().parent().attr('name')
           $.ajax({
-            url: "/rescue/detail/",
+            url: "/rescue/reply/",
             type:'GET',
             data:{id:id},
             dataType:'json',
@@ -65,6 +65,24 @@ export default {
             }
           })
         },
+      submitForm(){
+          var vue = this;
+          var content = $('form.el-form').find('input[type="text"]').val()
+          $.ajax({
+            url: "/rescue/add/",
+            type:'POST',
+            data:{content:content},
+            dataType:'json',
+            success:function(data){
+              vue.addRescueReplyVisible = false
+              // 获取分页数据，异步刷新
+              alert(data)
+            },
+            error:function(){
+              alert('server error')
+            },
+          })
+      },
     }
 }
 </script>
