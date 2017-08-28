@@ -34,8 +34,9 @@ def logout():
     logout_user(user)
     return redirect(url_for('auth.login'))
 
-@bp.route()
+@bp.route('/auth/')
 def checkLogin():
+
     pass
 
 @bp.route("/register",methods=['POST','GET'])
@@ -57,5 +58,4 @@ def load_user(user_id):
 
 @login_manager.unauthorized_handler
 def unauthor():
-
     return redirect(url_for('auth.login'))
